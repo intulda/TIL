@@ -6,11 +6,13 @@ import java.util.Scanner;
 public class MergeSort {
     static int n;
     static int[] numbers;
+    static int[] temp;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
         numbers = new int[n + 10];
+        temp = new int[n + 10]; //합쳐진 결과를 저장하는 임시변수 //merging에서 초기화를 생성을 했더니 배열이 매번 초기화되면서 값이 들어가는 과정에서 시간초과가 나왔다.
         for(int i=0; i<n; i++) {
             numbers[i] = sc.nextInt();
         }
@@ -47,7 +49,6 @@ public class MergeSort {
 
     static void merging(int[] arr, int start, int end, int start2, int end2) {
         int p, q; //p와 q의 현재 최솟값을 가리키는 변수들
-        int[] temp = new int[100]; //합쳐진 결과를 저장하는 임시변수
         int _temp_idx = 0;
 
         p = start;
@@ -72,7 +73,7 @@ public class MergeSort {
                 temp[_temp_idx++] = arr[i];
             }
         }
-
+        
         for(int i=start; i<=end2; i++) {
             numbers[i] = temp[i-start];
         }
