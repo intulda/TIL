@@ -52,7 +52,7 @@ public class NN단표 {
         long result = 0;
         for(int i=1; i<=n; i++) {
             if(i * n < x) {
-                result += i;
+                result += n;
             } else {
                 if(x % i == 0) {
                     result += (x / i) - 1;
