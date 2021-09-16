@@ -2,6 +2,7 @@ package dataStructure;
 
 import java.util.Scanner;
 
+//배열
 public class 트리순회결과출력 {
     static int n;
     static final int MAX = 100;
