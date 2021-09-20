@@ -31,6 +31,7 @@ public class Rook {
             }
         }
 
+        //배열밖 장애물 설치
         for(int i = 0; i <= size + 1; i++) {
             arr[i][size + 1] = 3;
             arr[i][0] = 3;
@@ -39,6 +40,7 @@ public class Rook {
         }
 
         boolean check = false;
+
         for(int i=0; i<kingCnt; i++) {
             //위
             for(int j=kingY[i]; j>=0; j--) {
@@ -48,6 +50,16 @@ public class Rook {
                     break;
                 }
             }
+
+            //왼쪽
+            for(int j=kingX[i]; j>=0; j--) {
+                if(arr[kingY[i]][j] == 1) {
+                    check = true;
+                } else if(arr[kingY[i]][j] == 3) {
+                    break;
+                }
+            }
+
             //아래
             for(int j=kingY[i]; j<=size; j++) {
                 if(arr[j][kingX[i]] == 1) {
@@ -66,14 +78,6 @@ public class Rook {
                 }
             }
 
-            //왼쪽
-            for(int j=kingX[i]; j>=0; j--) {
-                if(arr[kingY[i]][j] == 1) {
-                    check = true;
-                } else if(arr[kingY[i]][j] == 3) {
-                    break;
-                }
-            }
         }
         if(check) {
             System.out.println(1);

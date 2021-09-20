@@ -12,9 +12,11 @@ public class GCDLCM {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
+
         int first = n;
         int second = m;
-        int temp = -1;
+
+        int temp;
         while(true) {
             temp = first % second;
             if(temp == 0) {
@@ -27,4 +29,42 @@ public class GCDLCM {
         System.out.println(second);
         System.out.println(n * m / second);
     }
+
+    /**
+     *
+     * A    B => G   (A > B)
+     * 18  12
+     *
+     * A / B = q ... r
+     * 18  12  1     6
+     *
+     * A = aG
+     * B = bG
+     *
+     * (a = b)서로소 : 두 자연수의 공약수가 1밖에 없는 숫자
+     *  2   3
+     *
+     * [ A = Bq + r ]
+     * aG = bGq + r
+     *
+     * r = (a - bq)G;
+     *
+     * B = bG;
+     *
+     * 서로소 임을 증명해야함
+     *
+     * ----서로소가 아니다----
+     *
+     * (P = 1!=다른 공약수)
+     * a - bq = mP
+     * b = nP
+     *
+     * a - nPq = mP == 1
+     * a = (nq + m)P == 1
+     * b = nP
+     *
+     * 서로수가 아닌게 맞음
+     * 서로수가 아닌게 아니라서 a, b서로소 임이 증명된다.
+     *
+     */
 }

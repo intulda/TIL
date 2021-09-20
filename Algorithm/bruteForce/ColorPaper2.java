@@ -24,9 +24,10 @@ public class ColorPaper2 {
         int n = sc.nextInt();
         int[][] plane = new int[110][110];
 
+        //o(n3)
         for(int i=0; i<n; i++) {
-            int x = sc.nextInt();
-            int y = sc.nextInt();
+            int x = sc.nextInt(); //가로
+            int y = sc.nextInt(); //세로
             for(int j=y; j<y+10; j++) {
                 for(int k=x; k<x+10; k++) {
                     plane[j][k] = 1;
@@ -36,7 +37,7 @@ public class ColorPaper2 {
 
         int result = 0;
         for(int i=0; i<110; i++) {
-            for (int j = 0; j < 110; j++) {
+            for (int j = 0; j<110; j++) {
                 result += plane[i][j];
             }
         }
