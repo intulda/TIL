@@ -19,7 +19,7 @@ public class 거듭제곱구하기 {
     }
 
     static int getResult(int n, int m) {
-        //n^m을 10_007로 ㄴ ㅏ눈 나머지를 반환하는 함수
+        //n^m을 10_007로 나눈 나머지를 반환하는 함수
         if(m == 0) {
             return 1;
         } else {
