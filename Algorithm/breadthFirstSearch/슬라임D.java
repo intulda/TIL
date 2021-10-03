@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class 슬라임D{
+public class 슬라임D {
 
     static int n;
     static int m;
