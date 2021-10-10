@@ -20,7 +20,7 @@ public class 단지번호붙이기2_1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
-        sc.nextLine();
+        sc.nextLine();//enter
 
         map = new char[n + 10][n + 10];
         visit = new boolean[n + 10][n + 10];

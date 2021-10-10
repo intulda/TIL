@@ -1,3 +1,5 @@
+package DynamicProgramming;
+
 import java.util.Scanner;
 public class Fibonacci {
     static int n;
