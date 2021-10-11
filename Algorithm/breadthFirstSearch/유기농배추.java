@@ -13,6 +13,7 @@ public class 유기농배추 {
     static int[] dy = {-1, 1, 0, 0};
     static int[] dx = {0, 0, -1, 1};
     static int[] result;
+    static final int MAX = 2_510;
     static int count = 0;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -23,8 +24,8 @@ public class 유기농배추 {
             m = sc.nextInt();
             k = sc.nextInt();
 
-            map = new int[2510][2510];
-            visit = new boolean[2510][2510];
+            map = new int[MAX][MAX];
+            visit = new boolean[MAX][MAX];
 
             for (int j = 0; j < k; j++) {
                 Arrays.fill(visit[j], false);
