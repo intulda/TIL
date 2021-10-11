@@ -13,6 +13,7 @@ public class 슬라임B {
     static int[][] map;
     static int count = 0;
     static boolean[][] visit;
+    static final int MAX = 2_510;
     static int[] dy = {-1, 1, 0, 0};
     static int[] dx = {0, 0, -1, 1};
 
