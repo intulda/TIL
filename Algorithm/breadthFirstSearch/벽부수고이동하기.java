@@ -15,6 +15,8 @@ public class 벽부수고이동하기 {
     static boolean[][] visit;
     static int[] dy = {-1, 1, 0, 0};
     static int[] dx = {0, 0, -1, 1};
+    static int result;
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
@@ -44,7 +46,12 @@ public class 벽부수고이동하기 {
         }
         BFS(n, m, end);
 
-        int result = Integer.MAX_VALUE;
+
+        result = Integer.MAX_VALUE;
+
+        if (start[n][m] != 0) {
+            result = start[n][m];
+        }
 
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
