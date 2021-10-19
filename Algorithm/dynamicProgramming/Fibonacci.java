@@ -1,4 +1,4 @@
-package DynamicProgramming;
+package dynamicProgramming;
 
 import java.util.Scanner;
 public class Fibonacci {
