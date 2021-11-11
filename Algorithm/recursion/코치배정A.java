@@ -2,7 +2,8 @@ package recursion;
 
 import java.util.Scanner;
 
-public class 코치배정A {
+public class
+코치배정A {
 
     static int[] result;
     static int[] arr;
