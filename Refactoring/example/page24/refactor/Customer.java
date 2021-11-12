@@ -1,7 +1,5 @@
 package example.page24.refactor;
 
-import example.page24.original.Movie;
-
 import java.util.Enumeration;
 import java.util.Vector;
 
