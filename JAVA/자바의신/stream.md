@@ -8,7 +8,7 @@ data collection을 함수형 스타일로 처리 할 수 있게 해주는 API.
 
 ### 특징
 1. 파이프 라인 처리
-```java21
+```java
 List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
 
 List<Integer> result = numbers.stream()
@@ -17,7 +17,7 @@ List<Integer> result = numbers.stream()
         .collect(Collectors.toList());
 ```
 2. 지연 연산
-```java21
+```java
 List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
 
 Stream<Integer> stream = numbers.stream()
@@ -29,7 +29,7 @@ List<Integer> result = stream.collect(Collectors.toList());
 
 ### 왜 사용하는가?
 1. 가독성 향상
-```java21
+```java
 // 학생들 중에서 수학 점수가 80점 이상인 학생의 이름만 추출
 List<String> topMathStudents = students.stream()
     .filter(student -> student.getMathScore() >= 80)
@@ -37,14 +37,14 @@ List<String> topMathStudents = students.stream()
     .collect(Collectors.toList()); 
 ```
 2. 함수형 프로그래밍
-```java21
+```java
 List<String> upperNames = names.stream()
     .map(String::toUpperCase)
     .collect(Collectors.toList());
 ```
 
 3. 병렬처리 지원
-```java21
+```java
 // 단일 스레드
 long count = list.stream()
     .filter(expensive::operation)
@@ -57,7 +57,7 @@ long count = list.parallelStream()
 ```
 
 4. 체이닝으로 복잡한 로직을 간단하게 처리
-```java21
+```java
 // 주문 목록에서 2023년 주문 중 금액이 1만원 이상인 것의 평균 구하기
 double averageAmount = orders.stream()
     .filter(order -> order.getYear() == 2023)
