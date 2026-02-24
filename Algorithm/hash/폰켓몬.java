@@ -1,10 +1,14 @@
 package hash;
 
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
 public class 폰켓몬 {
     public static void main(String[] args) {
         int[] nums = {3, 1, 2, 3};
+
+        Arrays.sort(nums);
 
         System.out.println(Solution.solution(nums));
     }
@@ -15,15 +19,16 @@ public class 폰켓몬 {
      */
     static class Solution {
         public static int solution(int[] nums) {
-            int pickUpSize = nums.length / 2;
+            //내가 최대로 구할 수 있는 포켓몬의 수
+            int pickUpPokemon = nums.length / 2;
 
-            HashSet<Integer> hashSet = new HashSet<>();
+            // 중복제거
+            Set<Integer> set = new HashSet<>();
             for (int num : nums) {
-                hashSet.add(num);
+                set.add(num);
             }
-            int typeSize = hashSet.size();
 
-            return Math.min(typeSize, pickUpSize);
+            return Math.min(set.size(), pickUpPokemon);
         }
     }
 }
