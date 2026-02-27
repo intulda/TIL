@@ -1,9 +1,6 @@
 package stack_queue;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Stack;
 
 /**
  * 괄호가 바르게 짝지어졌다는 것은 '(' 문자로 열렸으면 반드시 짝지어서 ')' 문자로 닫혀야 한다는 뜻입니다. 예를 들어
@@ -18,30 +15,33 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class 괄호연습 {
     public static void main(String[] args) {
-        System.out.println(Solution.solution("()()")); // 기대값 true
-        System.out.println(Solution.solution("(())()")); // 기대값 true
-        System.out.println(Solution.solution(")()(")); // 기대값 false
-        System.out.println(Solution.solution("(()(")); // 기대값 false
+        System.out.println(solution("()()")); // 기대값 true
+        System.out.println(solution("(())()")); // 기대값 true
+        System.out.println(solution(")()(")); // 기대값 false
+        System.out.println(solution("(()(")); // 기대값 false
     }
 
-    /**
-     * 전혀 못 푼 문제 2시간동안 생각해도 풀지 못했다.
-     * 이해하면 너무도 쉬운데, 이걸 왜 떠올리지 못 했을까...
-     */
-    public class Solution {
-        public static boolean solution(String s) {
-            AtomicInteger count = new AtomicInteger(0);
+    static boolean solution(String s) {
+        boolean answer;
+        // 스택 문제
+        // 여는 괄호가 있다면 닫는 괄호도 꼭 있어야함
+        Stack<Character> stack = new Stack<>();
 
-            return s.chars()
-                    .allMatch(c -> {
-                        if ('(' == c) {
-                            count.incrementAndGet();
-                            return true;
-                        } else if (')' == c) {
-                            return count.getAndDecrement() > 0;
-                        }
-                        return true;
-                    }) && count.get() == 0;
+        for (char a : s.toCharArray()) {
+            if (stack.isEmpty()) {
+                stack.push(a);
+                continue;
+            }
+
+            if (stack.peek() == '(' && a != ')') {
+                stack.push(a);
+            } else if (stack.peek() == '(' && a == ')') {
+                stack.pop();
+            }
         }
+
+        answer = stack.empty();
+
+        return answer;
     }
 }
