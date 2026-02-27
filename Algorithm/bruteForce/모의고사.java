@@ -3,6 +3,7 @@ package bruteForce;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class 모의고사 {
     public static void main(String[] args) {
@@ -23,16 +24,22 @@ public class 모의고사 {
             if (answers[i] == giveUp3[i % giveUp3.length]) score[2]++;
         }
 
-        int max = Math.max(score[0], Math.max(score[1], score[2]));
-        List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < score.length; i++) {
-            if (score[i] == max) {
-                list.add(i + 1);
-            }
-        }
+//        int max = Math.max(score[0], Math.max(score[1], score[2]));
+//        List<Integer> list = new ArrayList<>();
+//        for (int i = 0; i < score.length; i++) {
+//            if (score[i] == max) {
+//                list.add(i + 1);
+//            }
+//        }
+//
+//        return list.stream()
+//                .mapToInt(Integer::intValue)
+//                .toArray();
+        int max = IntStream.of(score).max().orElse(0);
 
-        return list.stream()
-                .mapToInt(Integer::intValue)
+        return IntStream.range(0, score.length)
+                .filter(i -> score[i] == max)
+                .map(i -> i + 1)
                 .toArray();
     }
 }
